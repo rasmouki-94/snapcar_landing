@@ -359,6 +359,134 @@
             color: var(--accent);
         }
 
+        /* ============ WITH/WITHOUT SECTION ============ */
+        .with-without {
+            padding: 100px 24px;
+            background: var(--bg-primary);
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .comparison-column {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 2px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-column.without {
+            border-color: #FCA5A5;
+        }
+
+        .comparison-column.with {
+            border-color: #86EFAC;
+        }
+
+        .comparison-column.without:hover {
+            box-shadow: 0 8px 24px rgba(252, 165, 165, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .comparison-column.with:hover {
+            box-shadow: 0 8px 24px rgba(134, 239, 172, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .comparison-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 24px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .comparison-column.without .comparison-badge {
+            background: linear-gradient(135deg, #FCA5A5 0%, #EF4444 100%);
+            color: white;
+        }
+
+        .comparison-column.with .comparison-badge {
+            background: linear-gradient(135deg, #86EFAC 0%, #10B981 100%);
+            color: white;
+        }
+
+        .comparison-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-radius: 50%;
+        }
+
+        .comparison-column.without .comparison-icon {
+            background: #FEE2E2;
+        }
+
+        .comparison-column.with .comparison-icon {
+            background: #D1FAE5;
+        }
+
+        .comparison-list {
+            list-style: none;
+            margin-top: 28px;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-list-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }
+
+        .comparison-column.without .comparison-list-icon {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .comparison-column.with .comparison-list-icon {
+            background: #D1FAE5;
+            color: #059669;
+        }
+
         /* ============ SOCIAL PROOF ============ */
         .social-proof {
             padding: 100px 24px;
@@ -1033,6 +1161,11 @@
                 display: block;
             }
 
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
             .proof-grid, .benefits-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
@@ -1124,6 +1257,79 @@
                 </div>
                 <div class="floating-badge">
                     ✨ Transformation en <span>30 secondes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WITH/WITHOUT SECTION -->
+    <section class="with-without">
+        <div class="comparison-container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Avec ou sans Snapcar ?</h2>
+                <p class="section-subtitle">La différence est claire. Les résultats aussi.</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-column without animate-on-scroll">
+                    <div class="comparison-badge">❌ Sans Snapcar</div>
+                    <div class="comparison-icon">😰</div>
+                    <ul class="comparison-list">
+                        <li>
+                            <span class="comparison-list-icon">✕</span>
+                            <span>Photos prises sur parking avec un smartphone, mauvais éclairage et arrière-plan peu professionnel</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✕</span>
+                            <span>Moins de clics sur vos annonces, les acheteurs scrollent sans s'arrêter</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✕</span>
+                            <span>Délai de vente allongé de 15 à 30 jours en moyenne</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✕</span>
+                            <span>Négociations plus agressives car l'acheteur doute de la qualité</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✕</span>
+                            <span>Coût d'un photographe professionnel : 10-15€ par photo</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✕</span>
+                            <span>Retouches manuelles fastidieuses sur Photoshop pendant des heures</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comparison-column with animate-on-scroll">
+                    <div class="comparison-badge">✓ Avec Snapcar</div>
+                    <div class="comparison-icon">🎯</div>
+                    <ul class="comparison-list">
+                        <li>
+                            <span class="comparison-list-icon">✓</span>
+                            <span>Photos transformées en visuels premium : décor showroom, éclairage professionnel, plaque floutée automatiquement</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✓</span>
+                            <span>+47% de clics en moyenne sur vos annonces Leboncoin</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✓</span>
+                            <span>Vendez 15 jours plus vite grâce à des photos qui captent l'attention</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✓</span>
+                            <span>Crédibilité immédiate : les acheteurs voient un garage sérieux et professionnel</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✓</span>
+                            <span>0,39€ par photo seulement, économisez jusqu'à 2 400€ par mois</span>
+                        </li>
+                        <li>
+                            <span class="comparison-list-icon">✓</span>
+                            <span>Transformation en 30 secondes : uploadez, téléchargez, c'est prêt</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
