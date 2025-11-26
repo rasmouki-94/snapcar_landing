@@ -859,7 +859,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr repeat(4, 1fr);
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 48px;
         }
@@ -1055,6 +1055,41 @@
 
         .form-content.hide {
             display: none;
+        }
+
+        /* ============ CGV MODAL ============ */
+        .modal-cgv {
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 48px;
+        }
+
+        .modal-cgv h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .modal-cgv .cgv-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+        }
+
+        .modal-cgv h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .modal-cgv p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
         }
 
         /* ============ ANIMATIONS ============ */
@@ -1443,30 +1478,16 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Ressources</h4>
-                    <ul>
-                        <li><a href="#">Guide photo voiture</a></li>
-                        <li><a href="#">Blog vente auto</a></li>
-                        <li><a href="#">Comparatif outils</a></li>
-                        <li><a href="#">Stats marché VO</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
                     <h4>Légal</h4>
                     <ul>
                         <li><a href="#">Mentions légales</a></li>
-                        <li><a href="#">CGV</a></li>
-                        <li><a href="#">Politique RGPD</a></li>
-                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#" onclick="openCgvModal(); return false;">CGV</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="mailto:hello@snapcar.app">hello@snapcar.app</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -1499,6 +1520,55 @@
                 <h3>Vous êtes sur la liste !</h3>
                 <p>Merci de votre intérêt. Nous vous contacterons dès que Snapcar sera prêt. Vos 3 crédits gratuits vous attendent !</p>
             </div>
+        </div>
+    </div>
+
+    <!-- MODAL CGV -->
+    <div class="modal-overlay" id="modalCgv">
+        <div class="modal modal-cgv">
+            <button class="modal-close" onclick="closeCgvModal()">✕</button>
+
+            <h2>CONDITIONS GÉNÉRALES DE VENTE – Snapcar</h2>
+            <p class="cgv-date">Dernière mise à jour : 2024</p>
+
+            <h3>1. Objet</h3>
+            <p>Snapcar est un service en ligne permettant d'améliorer automatiquement les photos de véhicules grâce à l'intelligence artificielle. Les présentes Conditions Générales de Vente (CGV) encadrent l'accès au service et les modalités d'utilisation.</p>
+
+            <h3>2. Accès au service</h3>
+            <p>L'accès à Snapcar nécessite la création d'un compte. L'utilisateur est responsable de l'exactitude des informations fournies et de la confidentialité de son identifiant.</p>
+
+            <h3>3. Tarifs</h3>
+            <p>Les tarifs affichés sur le site sont exprimés en euros et toutes taxes comprises. Snapcar se réserve le droit de modifier ses prix à tout moment. Toute modification n'affecte pas les abonnements déjà en cours.</p>
+
+            <h3>4. Abonnements</h3>
+            <p>Les formules d'abonnement donnent accès à un nombre de crédits photo définis. L'abonnement est renouvelé automatiquement chaque mois, sauf résiliation par l'utilisateur.</p>
+
+            <h3>5. Paiement</h3>
+            <p>Le paiement est géré par un prestataire sécurisé (Stripe). Snapcar ne stocke aucune donnée bancaire. Le paiement est dû à la commande.</p>
+
+            <h3>6. Essai gratuit</h3>
+            <p>Une offre d'essai peut être proposée, incluant un nombre limité de crédits. Snapcar se réserve le droit de modifier ou de supprimer cette offre à tout moment.</p>
+
+            <h3>7. Utilisation des photos</h3>
+            <p>Les photos importées sont traitées pour fournir le service. Elles peuvent être conservées jusqu'à 30 jours pour permettre la consultation par l'utilisateur, puis automatiquement supprimées. Aucune photo n'est vendue, cédée ou publiée par Snapcar.</p>
+
+            <h3>8. Propriété intellectuelle</h3>
+            <p>Les contenus, images générées, textes, logos et éléments du site restent la propriété exclusive de Snapcar. Toute reproduction ou exploitation non autorisée est interdite.</p>
+
+            <h3>9. Résiliation</h3>
+            <p>L'utilisateur peut résilier son abonnement à tout moment via son espace personnel. Aucun remboursement n'est effectué pour la période en cours.</p>
+
+            <h3>10. Responsabilité</h3>
+            <p>Snapcar fournit le service « en l'état ». La société ne garantit pas que les résultats conviendront à un usage spécifique. Snapcar ne peut être tenue responsable d'un mauvais usage du service ou d'informations erronées fournies par l'utilisateur.</p>
+
+            <h3>11. Données personnelles</h3>
+            <p>Les données collectées sont utilisées uniquement pour fournir le service. Elles ne sont ni revendues ni transmises à des tiers. L'utilisateur dispose d'un droit d'accès, de modification et de suppression de ses données.</p>
+
+            <h3>12. Modifications des CGV</h3>
+            <p>Snapcar peut modifier les présentes CGV à tout moment. Les utilisateurs seront informés en cas de changement majeur.</p>
+
+            <h3>13. Contact</h3>
+            <p>Pour toute question : hello@snapcar.app</p>
         </div>
     </div>
 
@@ -1535,6 +1605,25 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
+                closeCgvModal();
+            }
+        });
+
+        // CGV Modal functions
+        function openCgvModal() {
+            document.getElementById('modalCgv').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCgvModal() {
+            document.getElementById('modalCgv').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close CGV modal on overlay click
+        document.getElementById('modalCgv').addEventListener('click', (e) => {
+            if (e.target.id === 'modalCgv') {
+                closeCgvModal();
             }
         });
 
