@@ -203,25 +203,7 @@
         .highlight-text {
             position: relative;
             display: inline-block;
-            background: linear-gradient(to right, var(--accent) 50%, transparent 50%);
-            background-size: 200% 100%;
-            background-position: 100% 0;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: highlightSlide 3s ease-in-out forwards;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes highlightSlide {
-            0% {
-                background-position: 100% 0;
-                -webkit-text-fill-color: transparent;
-            }
-            100% {
-                background-position: 0% 0;
-                -webkit-text-fill-color: white;
-            }
+            color: var(--text-primary);
         }
 
         .highlight-text::before {
@@ -229,22 +211,43 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 0%;
             height: 100%;
             background: var(--accent);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: left;
+            z-index: 1;
             animation: fillBackground 3s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .highlight-text::after {
+            content: 'qui font vendre';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            z-index: 2;
+            clip-path: inset(0 100% 0 0);
+            animation: revealWhiteText 3s ease-in-out forwards;
             animation-delay: 0.5s;
         }
 
         @keyframes fillBackground {
             0% {
-                transform: scaleX(0);
+                width: 0%;
             }
             100% {
-                transform: scaleX(1);
+                width: 100%;
+            }
+        }
+
+        @keyframes revealWhiteText {
+            0% {
+                clip-path: inset(0 100% 0 0);
+            }
+            100% {
+                clip-path: inset(0 0% 0 0);
             }
         }
 
