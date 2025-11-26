@@ -200,6 +200,54 @@
             color: var(--text-primary);
         }
 
+        .highlight-text {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent) 50%, transparent 50%);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: highlightSlide 3s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes highlightSlide {
+            0% {
+                background-position: 100% 0;
+                -webkit-text-fill-color: transparent;
+            }
+            100% {
+                background-position: 0% 0;
+                -webkit-text-fill-color: white;
+            }
+        }
+
+        .highlight-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: fillBackground 3s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fillBackground {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
         .hero-description {
             font-size: 1.15rem;
             color: var(--text-secondary);
@@ -435,12 +483,7 @@
             opacity: 0.6;
         }
 
-        /* ============ SOCIAL PROOF ============ */
-        .social-proof {
-            padding: 100px 24px;
-            background: var(--bg-secondary);
-        }
-
+        /* ============ SECTIONS GLOBALS ============ */
         .section-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -463,46 +506,6 @@
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        .proof-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .proof-card {
-            background: var(--bg-card);
-            padding: 28px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .proof-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .proof-stat {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .proof-text {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .proof-source {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 12px;
-            font-style: italic;
         }
 
         /* ============ BENEFITS ============ */
@@ -1091,10 +1094,6 @@
                 margin: 0 auto;
             }
 
-            .proof-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1117,7 +1116,7 @@
                 padding: 36px 28px;
             }
 
-            .proof-grid, .benefits-grid, .testimonials-grid {
+            .benefits-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1186,7 +1185,7 @@
                     </svg>
                     Powered by AI
                 </div>
-                <h1>Des photos de voitures qui font vendre</h1>
+                <h1>Des photos de voitures <span class="highlight-text">qui font vendre</span></h1>
                 <p class="hero-description">
                     Transformez vos photos parking en visuels premium en 1 clic : décor showroom, éclairage pro, plaque floutée... Ultra simple à utiliser et un rendu ultra réaliste. Boostez vos ventes en 30 secondes grâce à l'IA.
                 </p>
@@ -1245,38 +1244,6 @@
                 <div class="comparison-item">
                     <span class="comparison-icon-simple">✓</span>
                     <p>Transformation en 30 secondes à 0,39€/photo</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOCIAL PROOF -->
-    <section class="social-proof" id="examples">
-        <div class="section-container">
-            <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Ils vendent déjà plus vite</h2>
-                <p class="section-subtitle">Des résultats concrets mesurés par nos utilisateurs</p>
-            </div>
-            <div class="proof-grid">
-                <div class="proof-card animate-on-scroll">
-                    <div class="proof-stat">+47%</div>
-                    <p class="proof-text">de clics sur Leboncoin</p>
-                    <p class="proof-source">Garage Auto Select, Lyon</p>
-                </div>
-                <div class="proof-card animate-on-scroll">
-                    <div class="proof-stat">€2,400</div>
-                    <p class="proof-text">économisés en 3 mois</p>
-                    <p class="proof-source">Groupe Horizon, 15 sites</p>
-                </div>
-                <div class="proof-card animate-on-scroll">
-                    <div class="proof-stat">12</div>
-                    <p class="proof-text">voitures vendues en 2 semaines après refonte photos</p>
-                    <p class="proof-source">Karim B., Marseille</p>
-                </div>
-                <div class="proof-card animate-on-scroll">
-                    <div class="proof-stat">4.9/5</div>
-                    <p class="proof-text">étoiles sur 127 avis</p>
-                    <p class="proof-source">Trustpilot</p>
                 </div>
             </div>
         </div>
