@@ -359,6 +359,82 @@
             color: var(--accent);
         }
 
+        /* ============ WITH/WITHOUT SECTION ============ */
+        .with-without {
+            padding: 80px 24px;
+            background: var(--bg-primary);
+        }
+
+        .comparison-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-side {
+            background: var(--bg-card);
+            padding: 48px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .comparison-side h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .comparison-side.without h3 {
+            opacity: 0.5;
+        }
+
+        .comparison-side.with h3 {
+            color: var(--accent);
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .comparison-icon-simple {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            margin-top: 3px;
+            opacity: 0.4;
+        }
+
+        .comparison-side.with .comparison-icon-simple {
+            color: var(--accent);
+            opacity: 1;
+            font-weight: 700;
+        }
+
+        .comparison-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .comparison-side.without .comparison-item p {
+            opacity: 0.6;
+        }
+
         /* ============ SOCIAL PROOF ============ */
         .social-proof {
             padding: 100px 24px;
@@ -1033,6 +1109,14 @@
                 display: block;
             }
 
+            .comparison-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-side {
+                padding: 36px 28px;
+            }
+
             .proof-grid, .benefits-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
@@ -1124,6 +1208,43 @@
                 </div>
                 <div class="floating-badge">
                     ✨ Transformation en <span>30 secondes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WITH/WITHOUT SECTION -->
+    <section class="with-without">
+        <div class="comparison-wrapper animate-on-scroll">
+            <div class="comparison-side without">
+                <h3>Sans Snapcar</h3>
+                <div class="comparison-item">
+                    <span class="comparison-icon-simple">×</span>
+                    <p>Photos parking amateur qui font scroller sans s'arrêter</p>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-icon-simple">×</span>
+                    <p>30 jours de délai de vente en moyenne</p>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-icon-simple">×</span>
+                    <p>Photographe pro à 15€/photo ou retouches manuelles interminables</p>
+                </div>
+            </div>
+
+            <div class="comparison-side with">
+                <h3>Avec Snapcar</h3>
+                <div class="comparison-item">
+                    <span class="comparison-icon-simple">✓</span>
+                    <p>Visuels premium showroom qui stoppent le scroll</p>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-icon-simple">✓</span>
+                    <p>Vendez 15 jours plus vite avec +47% de clics</p>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-icon-simple">✓</span>
+                    <p>Transformation en 30 secondes à 0,39€/photo</p>
                 </div>
             </div>
         </div>
